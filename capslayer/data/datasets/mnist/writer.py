@@ -53,7 +53,7 @@ def load_mnist(path, split):
 
 
 def encode_and_write(dataset, filename):
-    with tf.python_io.TFRecordWriter(filename) as writer:
+    with tf.io.TFRecordWriter(filename) as writer:
         for image, label in dataset:
             image_raw = image.tostring()
             example = tf.train.Example(features=tf.train.Features(
