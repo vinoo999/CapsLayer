@@ -96,6 +96,7 @@ class DataLoader(object):
             if mode == "train":
                 dataset = dataset.shuffle(buffer_size=10000)
                 dataset = dataset.repeat()
+                dataset = dataset.batch(batch_size)
                 iterator = dataset.make_one_shot_iterator()
             elif mode == "eval":
                 dataset = dataset.repeat(1)
